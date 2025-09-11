@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+requests
+redis==5.*
+jinja2
+python-multipart

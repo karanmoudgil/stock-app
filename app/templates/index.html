@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Stock Quote</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; }
+    form { margin-bottom: 1rem; }
+    input { padding: 0.5rem; font-size: 1rem; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; max-width: 480px; }
+    .muted { color: #666; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>Stock Quote</h1>
+  <!-- ============================= SEARCH FORM ============================== -->
+  <form action="/quote" method="post">
+    <label for="ticker">Enter ticker:</label>
+    <input id="ticker" name="ticker" placeholder="META" required />
+    <button type="submit">Get Price</button>
+  </form>
+
+  <!-- ============================= RESULT CARD ============================== -->
+  {% if ticker %}
+  <div class="card">
+    <div><strong>Ticker:</strong> {{ ticker|upper }}</div>
+    <div><strong>Price:</strong> {{ price if price is not none else "N/A" }}</div>
+    <div class="muted">
+      Source: {{ source|upper }} | Cache TTL: {{ ttl }}s
+    </div>
+  </div>
+  {% endif %}
+
+  <p class="muted">Tip: refresh within {{ ttl }}s to see the cache in action; after that, it refetches.</p>
+</body>
+</html>
