@@ -1,12 +1,12 @@
 ## A. Docker Install
 
 **Install Brew**
-xcode-select --install
-curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-/bin/bash install.sh
-echo >> /Users/kmoudgil/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kmoudgil/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+(1) xcode-select --install
+(2) curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+(3) /bin/bash install.sh
+(4) echo >> /Users/kmoudgil/.zprofile
+(5) echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kmoudgil/.zprofile
+(6) eval "$(/opt/homebrew/bin/brew shellenv)"
 
 **Check if installed**
 Brew help
