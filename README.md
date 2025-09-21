@@ -1,6 +1,6 @@
 ## A. Docker Install
 
-**Install Brew**
+**(A.1) Install Brew**
 ```console
 xcode-select --install
 
@@ -15,32 +15,32 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kmoudgil/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-**Check if installed**
+**(A.2) Check if installed**
 ```console
 Brew help
 ```
 
-**Install Docker**
+**(A.3) Install Docker**
 ```console
 brew install --cask docker
 ```
 
-**Check if Installed**
+**(A.4) Check if Installed**
 ```console
 docker --version
 ```
 
-**Do the required steps in the app; whale icon**
+**(A.5) Do the required steps in the app; whale icon**
 
 
 ## B. Get the code repo
 
-**Clone the Repo in VS Code**
-(1) Click the "Clone Repository" button
-(2) Paste the [copied repository URL](https://github.com/karanmoudgil/stock-app.git) when prompted and press Enter
-(3) Choose a local directory on your computer where you want to save the cloned repository
+**(B.1) Clone the Repo in VS Code**
+(1) Click the "Clone Repository" button.
+(2) Paste the [copied repository URL](https://github.com/karanmoudgil/stock-app.git) when prompted and press Enter.
+(3) Choose a local directory on your computer where you want to save the cloned repository.
 
-**Get API key and create .env**
+**(B.2) Get API key and create .env**
 (1) Copy example and create a .env
 ```console
 cp .env.example .env
@@ -48,7 +48,7 @@ cp .env.example .env
 (2) Get the API Key.
 (3) Use VS Code to update your API Key in .env.
 
-**Safeguard .env**
+**(B.3) Safeguard .env**
 ```console
 touch .gitignore
 
@@ -58,17 +58,17 @@ echo ".env" >> .gitignore
 
 ## C. Build, run and watch logs
 
-**Build and Run**
+**(C.1) Build and Run**
 ```console
 docker compose up -d --build
 ```
 
-**Watch Logs**
+**(C.2) Watch Logs**
 ```console
 docker logs -f stock_web
 ```
 
-**Web Browser**
+**(C.3) Web Browser**
 (1) POST -> http://localhost:8000/.
 (2) GET -> http://localhost:8000/?ticker=META.
 (3) DB -> http://localhost:8000/api/history.
@@ -76,38 +76,38 @@ docker logs -f stock_web
 
 ## D. How to query the cache & database
 
-### Query Redis cache
-**Open a shell in the Redis container**
+### (D.1) Query Redis cache
+**(D.1.1) Open a shell in the Redis container**
 ```console
 docker exec -it stock_redis sh
 ```
 
-**Inside the container, use redis-cli**
+**(D.1.2) Inside the container, use redis-cli**
 ```console
 redis-cli
 ```
 
-**Inspect one ticker**
+**(D.1.3) Inspect one ticker**
 ```console
 GET quote:AAPL
 
 TTL quote:AAPL
 ```
 
-**Exit**
+**(D.1.4) Exit**
 ```console
 exit
 exit
 ```
 
 
-### Query SQLite database
-**Open a shell in the sqlite helper container**
+### (D.2) Query SQLite database
+**(D.2.1) Open a shell in the sqlite helper container**
 ```console
 docker exec -it stock_sqlite sh
 ```
 
-**Inspect the DB**
+**(D.2.2) Inspect the DB**
 ```console
 sqlite3 /data/quotes.db
 ```
@@ -130,7 +130,7 @@ SELECT * FROM search_history WHERE ticker = 'AAPL' ORDER BY id DESC LIMIT 10;
 .quit
 ```
 
-**exit the container shell**
+**(D.2.3) exit the container shell**
 ```console
 exit
 ```
