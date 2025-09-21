@@ -45,12 +45,13 @@ docker --version
 ```console
 cp .env.example .env
 ```
-(2) Get the API Key
-(3) Use VS Code to update your API Key in .env
+(2) Get the API Key.
+(3) Use VS Code to update your API Key in .env.
 
 **Safeguard .env**
 ```console
 touch .gitignore
+
 echo ".env" >> .gitignore
 ```
 
@@ -68,44 +69,45 @@ docker logs -f stock_web
 ```
 
 **Web Browser**
-(1) POST -> http://localhost:8000/
-(2) GET -> http://localhost:8000/?ticker=META
-(3) DB -> http://localhost:8000/api/history
-(4) DEBUG -> http://localhost:8000/debug/quote?ticker=META
+(1) POST -> http://localhost:8000/.
+(2) GET -> http://localhost:8000/?ticker=META.
+(3) DB -> http://localhost:8000/api/history.
+(4) DEBUG -> http://localhost:8000/debug/quote?ticker=META.
 
-## C. How to query the cache & database
+## D. How to query the cache & database
 
-**Query Redis cache**
-# Open a shell in the Redis container
+### Query Redis cache
+**Open a shell in the Redis container**
 ```console
 docker exec -it stock_redis sh
 ```
 
-# Inside the container, use redis-cli
+**Inside the container, use redis-cli**
 ```console
 redis-cli
 ```
 
-# Inspect one ticker
+**Inspect one ticker**
 ```console
 GET quote:AAPL
+
 TTL quote:AAPL
 ```
 
-# Exit
+**Exit**
 ```console
 exit
 exit
 ```
 
 
-**Query SQLite database**
-# Open a shell in the sqlite helper container
+### Query SQLite database
+**Open a shell in the sqlite helper container**
 ```console
 docker exec -it stock_sqlite sh
 ```
 
-# Inspect the DB
+**Inspect the DB**
 ```console
 sqlite3 /data/quotes.db
 ```
@@ -128,7 +130,7 @@ SELECT * FROM search_history WHERE ticker = 'AAPL' ORDER BY id DESC LIMIT 10;
 .quit
 ```
 
-# exit the container shell
+**exit the container shell**
 ```console
 exit
 ```
