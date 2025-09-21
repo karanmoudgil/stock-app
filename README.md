@@ -17,7 +17,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 **(A.2) Check if installed**
 ```console
-Brew help
+brew help
 ```
 
 **(A.3) Install Docker**
@@ -36,8 +36,11 @@ docker --version
 ## B. Get the code repo
 
 **(B.1) Clone the Repo in VS Code**
+
 (1) Click the "Clone Repository" button.
+
 (2) Paste the [copied repository URL](https://github.com/karanmoudgil/stock-app.git) when prompted and press Enter.
+
 (3) Choose a local directory on your computer where you want to save the cloned repository.
 
 **(B.2) Get API key and create .env**
@@ -46,7 +49,9 @@ docker --version
 cp .env.example .env
 ```
 (2) Get the API Key.
+
 (3) Use VS Code to update your API Key in .env.
+
 
 **(B.3) Safeguard .env**
 ```console
