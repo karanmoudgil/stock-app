@@ -2,27 +2,32 @@
 
 **Install Brew**
 ```console
-(1) xcode-select --install
-(2) curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-(3) /bin/bash install.sh
-(4) echo >> /Users/kmoudgil/.zprofile
-(5) echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kmoudgil/.zprofile
-(6) eval "$(/opt/homebrew/bin/brew shellenv)"
+xcode-select --install
+
+curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+
+/bin/bash install.sh
+
+echo >> /Users/kmoudgil/.zprofile
+
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kmoudgil/.zprofile
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 **Check if installed**
 ```console
-(1) Brew help
+Brew help
 ```
 
 **Install Docker**
 ```console
-(1) brew install --cask docker
+brew install --cask docker
 ```
 
 **Check if Installed**
 ```console
-(1) docker --version
+docker --version
 ```
 
 **Do the required steps in the app; whale icon**
@@ -36,22 +41,31 @@
 (3) Choose a local directory on your computer where you want to save the cloned repository
 
 **Get API key and create .env**
-(1) cp .env.example .env
+(1) Copy example and create a .env
+```console
+cp .env.example .env
+```
 (2) Get the API Key
 (3) Use VS Code to update your API Key in .env
 
 **Safeguard .env**
-(1) touch .gitignore
-(2) echo ".env" >> .gitignore
+```console
+touch .gitignore
+echo ".env" >> .gitignore
+```
 
 
 ## C. Build, run and watch logs
 
 **Build and Run**
-(1) docker compose up -d --build
+```console
+docker compose up -d --build
+```
 
 **Watch Logs**
-(1) docker logs -f stock_web
+```console
+docker logs -f stock_web
+```
 
 **Web Browser**
 (1) POST -> http://localhost:8000/
@@ -63,27 +77,40 @@
 
 **Query Redis cache**
 # Open a shell in the Redis container
-(1) docker exec -it stock_redis sh
+```console
+docker exec -it stock_redis sh
+```
 
 # Inside the container, use redis-cli
-(1) redis-cli
+```console
+redis-cli
+```
 
 # Inspect one ticker
-(1) GET quote:AAPL
-(2) TTL quote:AAPL
+```console
+GET quote:AAPL
+TTL quote:AAPL
+```
 
 # Exit
-(1) exit
-(2) exit
+```console
+exit
+exit
+```
 
 
 **Query SQLite database**
 # Open a shell in the sqlite helper container
+```console
 docker exec -it stock_sqlite sh
+```
 
 # Inspect the DB
+```console
 sqlite3 /data/quotes.db
+```
 
+```console
 -- inside sqlite3:
 .headers on
 .mode column
@@ -99,6 +126,9 @@ SELECT * FROM search_history WHERE ticker = 'AAPL' ORDER BY id DESC LIMIT 10;
 
 -- Exit sqlite3
 .quit
+```
 
 # exit the container shell
+```console
 exit
+```
