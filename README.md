@@ -43,7 +43,9 @@ docker --version
 
 (3) Choose a local directory on your computer where you want to save the cloned repository.
 
+
 **(B.2) Get API key and create .env**
+
 (1) Copy example and create a .env
 ```console
 cp .env.example .env
@@ -74,10 +76,15 @@ docker logs -f stock_web
 ```
 
 **(C.3) Web Browser**
-(1) POST -> http://localhost:8000/.
-(2) GET -> http://localhost:8000/?ticker=META.
-(3) DB -> http://localhost:8000/api/history.
-(4) DEBUG -> http://localhost:8000/debug/quote?ticker=META.
+
+(1) POST -> http://localhost:8000/
+
+(2) GET -> http://localhost:8000/?ticker=META
+
+(3) DB -> http://localhost:8000/api/history
+
+(4) DEBUG -> http://localhost:8000/debug/quote?ticker=META
+
 
 ## D. How to query the cache & database
 
