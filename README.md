@@ -8,9 +8,9 @@ curl -fsSL -o install.sh https://raw.githubusercontent.com/Homebrew/install/HEAD
 
 /bin/bash install.sh
 
-echo >> /Users/kmoudgil/.zprofile
+echo >> /Users/$USER/.zprofile
 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kmoudgil/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
